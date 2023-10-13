@@ -14,6 +14,7 @@ public class ConsultaCep {
                 .uri(endereco)
                 .build();
 
+
         try {
             HttpResponse<String> response = HttpClient
                     .newHttpClient()
