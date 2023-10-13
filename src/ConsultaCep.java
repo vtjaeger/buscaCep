@@ -19,10 +19,19 @@ public class ConsultaCep {
                     .newHttpClient()
                     .send(request, HttpResponse.BodyHandlers.ofString());
 
-            return new Gson().fromJson(response.body(), Endereco.class);
+            Endereco enderecoObj = new Gson().fromJson(response.body(), Endereco.class);
+            CalculaFrete calculoDeFrete = new CalculaFrete();
+            double frete = calculoDeFrete.calcularFrete(enderecoObj);
+
+            String freteFormato = String.format("Valor do frete para %s: %.2f", enderecoObj.uf(), frete);
+
+            System.out.println(freteFormato);
+            System.out.println("Confirmando os dados do CEP...");
+            Thread.sleep(800);
+
+            return enderecoObj;
         } catch (Exception e) {
             throw new RuntimeException("Não consegui obter o endereço a partir desse CEP.");
         }
-
     }
 }
