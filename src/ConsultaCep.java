@@ -23,12 +23,18 @@ public class ConsultaCep {
             CalculaFrete calculoDeFrete = new CalculaFrete();
             double frete = calculoDeFrete.calcularFrete(enderecoObj);
 
-            String freteFormato = String.format("Valor do frete para %s: %.2f", enderecoObj.uf(), frete);
 
-            System.out.println(freteFormato);
-            System.out.println("Confirmando os dados do CEP...");
-            Thread.sleep(800);
-
+            if(frete == 0) {
+                System.out.println("Frete grátis");
+                Thread.sleep(200);
+                System.out.println("Confirmando os dados do CEP...");
+            }
+            else {
+                String freteFormato = String.format("Valor do frete para %s: %.2f", enderecoObj.uf(), frete);
+                System.out.println(freteFormato);
+                Thread.sleep(200);
+                System.out.println("Confirmando os dados do CEP...");
+            }
             return enderecoObj;
         } catch (Exception e) {
             throw new RuntimeException("Não consegui obter o endereço a partir desse CEP.");
