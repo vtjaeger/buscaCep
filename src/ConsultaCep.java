@@ -32,17 +32,19 @@ public class ConsultaCep {
         } else {
             String freteFormato = String.format("Valor do frete para %s: %.2f", enderecoObj.uf(), frete);
             System.out.println(freteFormato);
-            Thread.sleep(200);
-            System.out.println("Confirmando os dados do CEP...");
         }
 
         System.out.println("Insira o número da casa:");
         int numeroCasa = scanner.nextInt();
-        System.out.println(numeroCasa);
+
+        Thread.sleep(200);
+        System.out.println("Confirmando os dados do CEP...");
 
         enderecoObj = enderecoObj.setNumeroCasa(numeroCasa);
 
+        System.out.println(enderecoObj);
 
+        Thread.sleep(1000);
         return enderecoObj;
 
     }

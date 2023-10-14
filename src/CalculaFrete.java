@@ -26,7 +26,7 @@ public class CalculaFrete {
                 break;
 
             default:
-                throw new UnsupportedOperationException("UF nao suportada " + uf);
+                throw new UnsupportedOperationException("Nao é possivel realizar a entrega em " + uf);
         }
         formulaFrete = (10 * valor);
         precoAtual = formulaFrete;
