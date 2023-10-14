@@ -27,4 +27,5 @@ public class CalculaFrete {
         double formulaFrete = (10 * valor);
         return formulaFrete;
     }
+
 }

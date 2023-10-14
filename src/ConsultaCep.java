@@ -44,6 +44,6 @@ public class ConsultaCep {
 
         Thread.sleep(1000);
         return enderecoObj;
-
     }
+
 }
