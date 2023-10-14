@@ -25,6 +25,8 @@ public class ConsultaCep {
         CalculaFrete calculoDeFrete = new CalculaFrete();
         double frete = calculoDeFrete.calcularFrete(enderecoObj);
 
+        System.out.println("Insira o número da casa:");
+        int numeroCasa = scanner.nextInt();
 
         if (frete == 0) {
             System.out.println("Frete grátis");
@@ -33,10 +35,6 @@ public class ConsultaCep {
             String freteFormato = String.format("Valor do frete para %s: %.2f", enderecoObj.uf(), frete);
             System.out.println(freteFormato);
         }
-
-        System.out.println("Insira o número da casa:");
-        int numeroCasa = scanner.nextInt();
-
         Thread.sleep(200);
         System.out.println("Confirmando os dados do CEP...");
 

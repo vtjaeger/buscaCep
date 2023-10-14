@@ -1,36 +1,30 @@
+import java.util.HashMap;
+import java.util.Map;
+
 public class CalculaFrete {
+    private static final Map<String, Double> VALORES_POR_ESTADO = iniciarlizarValoresPorEstado();
+
+    private static Map<String, Double> iniciarlizarValoresPorEstado(){
+        Map<String, Double> valoresPorEstado = new HashMap<>();
+        valoresPorEstado.put("SP", 4.0);
+        valoresPorEstado.put("RJ", 5.0);
+        valoresPorEstado.put("RS", 0.0);
+        valoresPorEstado.put("MG", 6.0);
+        valoresPorEstado.put("ES", 3.0);
+        valoresPorEstado.put("BH", 7.0);
+        return valoresPorEstado;
+    }
     public double calcularFrete(Endereco endereco){
+
         String uf = endereco.uf();
         double valor;
-        double formulaFrete;
-        double precoAtual;
 
-        switch (uf){
-            case "SP":
-                valor = 4;
-                break;
-            case "RJ":
-                valor = 5;
-                break;
-            case "RS":
-                valor = 0;
-                break;
-            case "MG":
-                valor = 6;
-                break;
-            case "ES":
-                valor = 3;
-                break;
-            case "BH":
-                valor = 7;
-                break;
-
-            default:
-                throw new UnsupportedOperationException("Nao é possivel realizar a entrega em " + uf);
+        if(VALORES_POR_ESTADO.containsKey(uf)){
+            valor = VALORES_POR_ESTADO.get(uf);
+        } else {
+            throw new UnsupportedOperationException("Nao é possivel realizar entregas em " + uf);
         }
-        formulaFrete = (10 * valor);
-        precoAtual = formulaFrete;
-
-        return precoAtual;
+        double formulaFrete = (10 * valor);
+        return formulaFrete;
     }
 }
