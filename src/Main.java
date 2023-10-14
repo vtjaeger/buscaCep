@@ -16,7 +16,7 @@ public class Main {
             GeradorArquivo gerador = new GeradorArquivo();
             gerador.geraJson(novoEndereco);
 
-        } catch (RuntimeException | IOException e){
+        } catch (RuntimeException | IOException | InterruptedException e){
             System.out.println(e.getMessage());;
             System.out.println("Finalizando aplicacao");
         }
