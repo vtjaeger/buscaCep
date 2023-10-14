@@ -3,7 +3,6 @@ import java.util.Map;
 
 public class CalculaFrete {
     private static final Map<String, Double> VALORES_POR_ESTADO = iniciarlizarValoresPorEstado();
-
     private static Map<String, Double> iniciarlizarValoresPorEstado(){
         Map<String, Double> valoresPorEstado = new HashMap<>();
         valoresPorEstado.put("SP", 4.0);
@@ -24,8 +23,7 @@ public class CalculaFrete {
         } else {
             throw new UnsupportedOperationException("Nao é possivel realizar entregas em " + uf);
         }
-        double formulaFrete = (10 * valor);
-        return formulaFrete;
+        return (10 * valor);
     }
 
 }
