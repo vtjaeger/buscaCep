@@ -32,10 +32,10 @@ public class ConsultaCep {
         enderecoObj = enderecoObj.setNumeroCasa(numeroCasa);
 
         if (frete == 0) {
-            System.out.println("Frete grátis\n");
+            System.out.println("\nFrete grátis\n");
 
         } else {
-            String freteFormato = String.format("Valor do frete para %s: %.2f", enderecoObj.uf(), frete);
+            String freteFormato = String.format("Valor do frete para %s: %.2f.\n", enderecoObj.uf(), frete);
             System.out.println(freteFormato);
         }
         System.out.println("Confirmando os dados do CEP...");
