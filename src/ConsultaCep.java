@@ -25,33 +25,19 @@ public class ConsultaCep {
         CalculaFrete calculoDeFrete = new CalculaFrete();
         double frete = calculoDeFrete.calcularFrete(enderecoObj);
 
-        VerificaCasa casaOuAp = new VerificaCasa();
-        boolean isCasa = casaOuAp.casa(enderecoObj);
+        int numeroCasa = 0;
 
-        int numeroPredio = 0;
-        int numeroCasaOuAp = 0;
-
-        if (isCasa) {
-            System.out.println("Insira o número da casa:");
-            numeroCasaOuAp = scanner.nextInt();
-            enderecoObj = enderecoObj.setNumeroCasa(numeroCasaOuAp);
-        } else {
-            System.out.println("Insira o número do predio:");
-            numeroPredio = scanner.nextInt();
-            enderecoObj = enderecoObj.setNumeroPredio(numeroPredio);
-            System.out.println("Insira o número do apartamento:");
-            numeroCasaOuAp = scanner.nextInt();
-            enderecoObj = enderecoObj.setNumeroApartamento(numeroCasaOuAp);
-        }
+        System.out.println("Insira o número da casa:");
+        numeroCasa = scanner.nextInt();
+        enderecoObj = enderecoObj.setNumeroCasa(numeroCasa);
 
         if (frete == 0) {
-            System.out.println("Frete grátis");
+            System.out.println("Frete grátis\n");
 
         } else {
             String freteFormato = String.format("Valor do frete para %s: %.2f", enderecoObj.uf(), frete);
             System.out.println(freteFormato);
         }
-
         System.out.println("Confirmando os dados do CEP...");
         return enderecoObj;
     }
